@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         //Task 1
@@ -31,7 +33,7 @@ public class Main {
         }
         System.out.println("Минимальная сумма трат за неделю составила " + min + " рублей.");
         int max = arrayMinAndMax[0];
-        for (int element: arrayMinAndMax) {
+        for (int element : arrayMinAndMax) {
             if (element > max) {
                 max = element;
             }
@@ -59,11 +61,19 @@ public class Main {
         //Task 4
         System.out.println("Задача 4");
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = reverseFullName.length - 1; i >= 0; i--) {
-            System.out.print(reverseFullName[i]);
+        int start = 0;
+        int end = reverseFullName.length - 1;
+        char temp;
+        while (start < end) {
+            temp = reverseFullName[start];
+            reverseFullName[start] = reverseFullName[end];
+            reverseFullName[end] = temp;
+            start++;
+            end--;
+        }
+        for (char c : reverseFullName) {
+            System.out.print(c);
         }
         System.out.println();
-
-
     }
 }
